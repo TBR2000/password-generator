@@ -13,7 +13,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
+//Password generation all happens below
 function generatePassword(){
 
   // Selections for password parameters
@@ -23,7 +23,7 @@ function generatePassword(){
   var numConfirm = confirm("Do you want to include numbers?");
   var specConfirm = confirm("Do you want to use Special Charaters?");
 
-  //Varables to be used in password
+  //Variables to be used in password
   var alph = "abcdefghijklmnopqrstuvwxyz";
   var num = "0123456789";
   var spec = "!@#$%^&*(),.<>/?";
@@ -95,16 +95,14 @@ function generatePassword(){
     alert("You must make at least one selection"); 
   }
   
-  console.log (main)
-
-  //Chooses random selection of main password array
+  //Chooses random selection out of main password array
   
-      var randpassword = [];
-    for (var i = 0; i < passLength; i++) {
+  var randpassword = [];
+  for (var i = 0; i < passLength; i++) {
       var rand = main[Math.floor(Math.random() * main.length)];
       randpassword.push(rand);
-    }
+  }
            
     return (randpassword.join(""));
-  }     
+}     
 
