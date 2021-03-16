@@ -26,7 +26,7 @@ function generatePassword(){
   //Variables to be used in password
   var alph = "abcdefghijklmnopqrstuvwxyz";
   var num = "0123456789";
-  var spec = "!@#$%^&*(),.<>/?";
+  var spec = "!@#$%^&*()<>/?";
 
   //Variables into arrays
   var letters = alph.split("");
@@ -53,9 +53,6 @@ function generatePassword(){
   }
   else if ((alphaConfirm == true) && (upperConfirm == true) && (numConfirm != true) && (specConfirm != true)){
     var main = letters.concat(lettersUpper);
-  }
-  else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm != true)){
-   var main = letters
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm == true) && (specConfirm == true)){
     var main = letters.concat(numerals, special);
