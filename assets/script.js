@@ -104,7 +104,7 @@ function generatePassword(){
       var rand = main[Math.floor(Math.random() * main.length)];
       randpassword.push(rand);
     }
-
-    console.log (randpassword)
+           
+    return (randpassword.join(""));
   }     
 
