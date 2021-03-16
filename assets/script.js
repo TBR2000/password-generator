@@ -14,7 +14,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-function.generatePassword(){
+function generatePassword(){
 
   // Selections for password parameters
   var passLength = prompt("How long does your password need to be (8-128)?");
@@ -24,71 +24,87 @@ function.generatePassword(){
   var specConfirm = confirm("Do you want to use Special Charaters?");
 
   //Varables to be used in password
-  var str = "abcdefghijklmnopqrstuvwxyz";
+  var alph = "abcdefghijklmnopqrstuvwxyz";
   var num = "0123456789";
   var spec = "!@#$%^&*(),.<>/?";
 
   //Variables into arrays
-  var letters = str.split("");
-  var lettersUpper = str.toUpperCase().split("");
+  var letters = alph.split("");
+  var lettersUpper = alph.toUpperCase().split("");
   var numerals = num.split("");
   var special = spec.split("");
 
   // Main password array
   var main = "";
 
+  // Min and Max length of password
+  if (passLength < 8){
+    passLength = 8
+  }else if (passLength > 128){
+    passLength =128
+  }
+
   // Select which arrays to concatenate into main password array
   if ((alphaConfirm == true) && (upperConfirm == true) && (numConfirm == true) && (specConfirm == true)){
-    main.concat(letters, lettersUpper, numerals, special);
+   var main = letters.concat(lettersUpper, numerals, special);
   }
   else if ((alphaConfirm == true) && (upperConfirm == true) && (numConfirm == true) && (specConfirm != true)){
-    main.concat(letters, lettersUpper, numerals);
+   var main = letters.concat(lettersUpper, numerals);
   }
   else if ((alphaConfirm == true) && (upperConfirm == true) && (numConfirm != true) && (specConfirm != true)){
-    main.concat(letters, lettersUpper,);
+    var main = letters.concat(lettersUpper);
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm != true)){
-    main.concat(letters);
+   var main = letters
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm == true) && (specConfirm == true)){
-    main.concat(letters, numerals, special);
+    var main = letters.concat(numerals, special);
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm == true)){
-    main.concat(letters, special);
+    var main = letters.concat(special);
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm == true) && (specConfirm != true)){
-    main.concat(letters, numerals);
+    var main = letters.concat (numerals);
   }
   else if ((alphaConfirm != true) && (upperConfirm != true) && (numConfirm == true) && (specConfirm == true)){
-    main.concat(numerals, special);
+    var main = numerals.concat(special);
   }
   else if ((alphaConfirm != true) && (upperConfirm == true) && (numConfirm == true) && (specConfirm == true)){
-    main.concat(lettersUpper, numerals, special);
+    var main = lettersUpper.concat(numerals, special);
   }
   else if ((alphaConfirm != true) && (upperConfirm == true) && (numConfirm != true) && (specConfirm == true)){
-    main.concat(lettersUpper, special);
+    var main = lettersUpper.concat(special);
   }
   else if ((alphaConfirm != true) && (upperConfirm == true) && (numConfirm == true) && (specConfirm != true)){
-    main.concat(lettersUpper, numerals);
+    var main = lettersUpper.concat(numerals);
   }
   else if ((alphaConfirm == true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm != true)){
-    main.concat(letters);
+    var main = letters;
   }
   else if ((alphaConfirm != true) && (upperConfirm == true) && (numConfirm != true) && (specConfirm != true)){
-    main.concat(lettersUpper);
+    var main = lettersUpper
   }
   else if ((alphaConfirm != true) && (upperConfirm != true) && (numConfirm == true) && (specConfirm != true)){
-    main.concat(numerals);
+    var main = numerals;
   }
   else if ((alphaConfirm != true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm == true)){
-    main.concat(special);
+    var main = special;
   }
   //Alerts that no choices have been made
   if ((alphaConfirm != true) && (upperConfirm != true) && (numConfirm != true) && (specConfirm != true)){
     alert("You must make at least one selection"); 
   }
+  
+  console.log (main)
 
   //Chooses random selection of main password array
   
+      var randpassword = [];
+    for (var i = 0; i < passLength; i++) {
+      var rand = main[Math.floor(Math.random() * main.length)];
+      randpassword.push(rand);
+    }
 
-}
+    console.log (randpassword)
+  }     
+
