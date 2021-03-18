@@ -97,7 +97,7 @@ function generatePassword(){
   var randompassword = [];
   for (var i = 0; i < passLength; i++) {
       var random = main[Math.floor(Math.random() * main.length)];
-      randpassword.push(random);
+      randompassword.push(random);
   }
            
     return (randompassword.join(""));
