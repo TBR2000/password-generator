@@ -17,11 +17,11 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword(){
 
   // Selections for password parameters
-  var passLength = prompt("How long does your password need to be (8-128)?");
-  var alphaConfirm = confirm("Do you want to include lowercase Letters?");
+  var passLength = prompt("How many characters does your password need to be? (8-128)");
+  var alphaConfirm = confirm("Do you want to include Lowercase Letters?");
   var upperConfirm = confirm("Do you want to include Uppercase Letters?");
   var numConfirm = confirm("Do you want to include numbers?");
-  var specConfirm = confirm("Do you want to use Special Charaters?");
+  var specConfirm = confirm("Do you want to include Special Charaters?");
 
   //Variables to be used in password
   var alph = "abcdefghijklmnopqrstuvwxyz";
@@ -94,12 +94,12 @@ function generatePassword(){
   
   //Chooses random selection out of main password array
   
-  var randpassword = [];
+  var randompassword = [];
   for (var i = 0; i < passLength; i++) {
-      var rand = main[Math.floor(Math.random() * main.length)];
-      randpassword.push(rand);
+      var random = main[Math.floor(Math.random() * main.length)];
+      randpassword.push(random);
   }
            
-    return (randpassword.join(""));
+    return (randompassword.join(""));
 }     
 
